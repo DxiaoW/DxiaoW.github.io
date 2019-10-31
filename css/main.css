@@ -22,6 +22,12 @@ keyframes heartAnimate 70% {
 .with-love {
   color: #ff7171;
 }
+* {
+  cursor: url("https://sm.ms/image/zITgp98lMGKH6Dn"), auto !important;
+}
+:active {
+  cursor: url("https://sm.ms/image/zITgp98lMGKH6Dn"), auto !important;
+}
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -2058,7 +2064,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #39a6e9;
+  background: #9e9945;
 }
 .links-of-blogroll {
   font-size: 13px;
