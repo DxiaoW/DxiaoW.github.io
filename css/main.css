@@ -23,12 +23,10 @@ keyframes heartAnimate 70% {
   color: #ff7171;
 }
 * {
-  cursor: url("D:\blog\DxiaoWBlog\themes
-ext\source\images\duckling.ico"), auto !important;
+  cursor: url(""), auto !important;
 }
 :active {
-  cursor: url("D:\blog\DxiaoWBlog\themes
-ext\source\images\duckling.ico"), auto !important;
+  cursor: url(""), auto !important;
 }
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -2066,7 +2064,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #73b654;
+  background: #a61f0e;
 }
 .links-of-blogroll {
   font-size: 13px;
