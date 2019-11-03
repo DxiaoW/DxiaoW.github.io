@@ -1983,7 +1983,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ede946;
+  background: #0b797e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3197,7 +3197,7 @@ pre .javascript .function {
   background: #ffdab9;
 }
 body {
-  background: url("/images/bg.jpg");
+  background: url("http://q0dzqymln.bkt.clouddn.com/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -3211,10 +3211,10 @@ body {
   opacity: 0.8;
 }
 * {
-  cursor: url("/images/黄鸭.ico"), auto !important;
+  cursor: url("http://q0dzqymln.bkt.clouddn.com/%E9%BB%84%E9%B8%AD.ico"), auto !important;
 }
 :active {
-  cursor: url("/images/黄鸭2.ico"), auto !important;
+  cursor: url("http://q0dzqymln.bkt.clouddn.com/%E9%BB%84%E9%B8%AD2.ico"), auto !important;
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
