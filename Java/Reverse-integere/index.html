@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="学习使我快乐">
 <meta property="og:description" content="题目给出一个32位的有符号整数,你需要将这个整数中每位上的数字进行反转。 示例1：12输入: 123输出: 321 示例2：12输入: -123输出: -321 示例3：12输入: 120输出: 21 解析n位的有符号整数意思是说范围在[−2^(n−1),2^(n−1)−1]，那么32位有符号整数范围是[−2^31,2^31−1]也就是-2147483648到2147483647超出这个范围视为溢">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-10T07:57:34.425Z">
+<meta property="og:updated_time" content="2019-11-10T08:08:11.005Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -317,7 +317,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-10T15:57:34+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-10T16:08:11+08:00">
                 2019-11-10
               </time>
             
@@ -419,7 +419,7 @@
 <li>溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，pop为x每次除10的余数(个位数)</li>
 </ul>
 <ol>
-<li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br> 当出现 ans &gt; MAX_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br> 当出现 ans == MAX_VALUE / 10 且 pop &gt; 7 时，则一定溢出，7是2^31 - 1的个位数。</li>
+<li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br> 当出现 ans &gt; MAX_VALUE / 10 且还有pop需要添加时，则一定溢出<br> 当出现 ans == MAX_VALUE / 10 且 pop &gt; 7时，则一定溢出，7是2^31 - 1的个位数。</li>
 <li>从ans * 10 + pop &lt; MIN_VALUE这个溢出条件来看<br> 当出现 ans &lt; MIN_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br> 当出现 ans == MIN_VALUE / 10 且 pop &lt; -8 时，则一定溢出，8是-2^31的个位数</li>
 </ol>
 <h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int reverse(int x) &#123;</span><br><span class="line">        int ans=0;</span><br><span class="line">        <span class="keyword">while</span>(x!=0)&#123;</span><br><span class="line">            int pop=x%10;</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;Integer.MAX_VALUE/10||(ans==Integer.MAX_VALUE/10&amp;&amp;pop&gt;7))<span class="built_in">return</span> 0;</span><br><span class="line">            <span class="keyword">if</span>(ans&lt;Integer.MIN_VALUE/10||(ans==Integer.MIN_VALUE/10&amp;&amp;pop&lt;-8))<span class="built_in">return</span> 0;</span><br><span class="line">            ans=ans*10+pop;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

@@ -12,7 +12,7 @@
 <li>溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，pop为x每次除10的余数(个位数)</li>
 </ul>
 <ol>
-<li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br> 当出现 ans &gt; MAX_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br> 当出现 ans == MAX_VALUE / 10 且 pop &gt; 7 时，则一定溢出，7是2^31 - 1的个位数。</li>
+<li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br> 当出现 ans &gt; MAX_VALUE / 10 且还有pop需要添加时，则一定溢出<br> 当出现 ans == MAX_VALUE / 10 且 pop &gt; 7时，则一定溢出，7是2^31 - 1的个位数。</li>
 <li>从ans * 10 + pop &lt; MIN_VALUE这个溢出条件来看<br> 当出现 ans &lt; MIN_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br> 当出现 ans == MIN_VALUE / 10 且 pop &lt; -8 时，则一定溢出，8是-2^31的个位数</li>
 </ol>
 <h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int reverse(int x) &#123;</span><br><span class="line">        int ans=0;</span><br><span class="line">        <span class="keyword">while</span>(x!=0)&#123;</span><br><span class="line">            int pop=x%10;</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;Integer.MAX_VALUE/10||(ans==Integer.MAX_VALUE/10&amp;&amp;pop&gt;7))<span class="built_in">return</span> 0;</span><br><span class="line">            <span class="keyword">if</span>(ans&lt;Integer.MIN_VALUE/10||(ans==Integer.MIN_VALUE/10&amp;&amp;pop&lt;-8))<span class="built_in">return</span> 0;</span><br><span class="line">            ans=ans*10+pop;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
