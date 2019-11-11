@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode--回文数</title>
+    <url>/Java/Palindrome/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>判断一个整数是否是回文数。回文数是指正序和倒序读都是一样的整数。</p>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 121</span><br><span class="line">输出: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: -121</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+<h3 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>可以将数字本身进行反转，如果反转后的数与原来的数想的即为回文数。这里需要注意，反转后可能会大于int.MAX导致溢出，我们可以考虑只反转数字的一半这样就避开了溢出的问题。<br>如何得知反转数的位数已经达到原始数的一半？<br>每次循环我们将原始数 / 10,反转数 * 10,当反转数大于原始数时跳出循环即处理一半数字。<br>另外负数肯定不是回文数，能被10整除的数除了0以外也都不是回文数。</p>
+<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isPalindrome(int x) &#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;0 || x%10==0 &amp;&amp; x!=0)&#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        int revertedNumber=0;</span><br><span class="line">        <span class="keyword">while</span>(x&gt;revertedNumber)&#123;</span><br><span class="line">            revertedNumber=revertedNumber*10 + x%10;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  x==revertedNumber||x==revertedNumber/10;//可能为奇数或偶数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode--整数反转</title>
     <url>/Java/Reverse-integere/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给出一个32位的有符号整数,你需要将这个整数中每位上的数字进行反转。</p>
 <h3 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure>
 <h3 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure>
 <h3 id="示例3："><a href="#示例3：" class="headerlink" title="示例3："></a>示例3：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>n位的有符号整数意思是说范围在[−2^(n−1),2^(n−1)−1]，那么32位有符号整数范围是[−2^31,2^31−1]也就是-2147483648到2147483647超出这个范围视为溢出则返回0.</p>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>n位的有符号整数意思是说范围在[−2^(n−1),2^(n−1)−1]，那么32位有符号整数范围是[−2^31,2^31−1]也就是-2147483648到2147483647超出这个范围视为溢出则返回0.</p>
 <ul>
 <li>溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，pop为x每次除10的余数(个位数)</li>
 </ul>
@@ -21,7 +37,7 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>LeetCode题目</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -35,7 +51,7 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>LeetCode题目</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
 </search>
