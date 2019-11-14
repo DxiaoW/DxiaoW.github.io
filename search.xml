@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode--罗马数字转整数</title>
+    <url>/Java/Roman-digital-converter/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。<br>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。<br>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。<br>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
+<h3 id="相关对应表："><a href="#相关对应表：" class="headerlink" title="相关对应表："></a>相关对应表：</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>数值</th>
+<th>字符(例外)</th>
+<th>数值(例外)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I</td>
+<td>1</td>
+<td>IV</td>
+<td>4</td>
+</tr>
+<tr>
+<td>V</td>
+<td>5</td>
+<td>IX</td>
+<td>9</td>
+</tr>
+<tr>
+<td>X</td>
+<td>10</td>
+<td>XL</td>
+<td>40</td>
+</tr>
+<tr>
+<td>L</td>
+<td>50</td>
+<td>XC</td>
+<td>90</td>
+</tr>
+<tr>
+<td>C</td>
+<td>100</td>
+<td>CD</td>
+<td>400</td>
+</tr>
+<tr>
+<td>D</td>
+<td>500</td>
+<td>CM</td>
+<td>900</td>
+</tr>
+<tr>
+<td>M</td>
+<td>100</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: <span class="string">"LVIII"</span></span><br><span class="line">输出: 58</span><br><span class="line">解释: L = 50, V= 5, III = 3.</span><br></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: <span class="string">"MCMXCIV"</span></span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul>
+<li>我们将所有的组合可能列出并添加到哈希表中</li>
+<li>遍历字符串，字符串的可能只有两种，一种为1个字符，一种为2个字符，两个字符优先于一个字符</li>
+<li>先判断2个字符的组合在哈希表中是否存在，存在则将值取出加到结果ans中，并向后移2个字符。不存在则判断当前1个字符是否存在，存在则将值取出加到结果ans中，并向后移1个字符。</li>
+<li>遍历结束返回结果 ans</li>
+</ul>
+<p><em>PS：</em><br>这里我们可以用containsKey来判断字符串是否存在相应的字符；<br>subtring来截取字符串的某一部分；</p>
+<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int romanToInt(String s) &#123;</span><br><span class="line">        Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">"I"</span>,1);</span><br><span class="line">        map.put(<span class="string">"IV"</span>,4);</span><br><span class="line">        map.put(<span class="string">"V"</span>,5);</span><br><span class="line">        map.put(<span class="string">"IX"</span>,9);</span><br><span class="line">        map.put(<span class="string">"X"</span>,10);</span><br><span class="line">        map.put(<span class="string">"XL"</span>,40);</span><br><span class="line">        map.put(<span class="string">"L"</span>,50);</span><br><span class="line">        map.put(<span class="string">"XC"</span>,90);</span><br><span class="line">        map.put(<span class="string">"C"</span>,100);</span><br><span class="line">        map.put(<span class="string">"CD"</span>,400);</span><br><span class="line">        map.put(<span class="string">"D"</span>,500);</span><br><span class="line">        map.put(<span class="string">"CM"</span>,900);</span><br><span class="line">        map.put(<span class="string">"M"</span>,1000);</span><br><span class="line">        int ans=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;s.length();)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i+1&lt;s.length() &amp;&amp; map.containsKey(s.substring(i,i+2)))&#123;</span><br><span class="line">            ans+=map.get(s.substring(i,i+2));</span><br><span class="line">            i+=2;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            ans+=map.get(s.substring(i,i+1));</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode--回文数</title>
     <url>/Java/Palindrome/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>判断一个整数是否是回文数。回文数是指正序和倒序读都是一样的整数。</p>
