@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode--最长公共前缀</title>
+    <url>/Java/longestCommonPrefix/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>编写一个函数来查找字符串数组中的最长公共前缀.如果不存在公共前缀,返回空字符串””.</p>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: [<span class="string">"flower"</span>,<span class="string">"flow"</span>,<span class="string">"flight"</span>]</span><br><span class="line">输出: <span class="string">"fl"</span></span><br></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: [<span class="string">"dog"</span>,<span class="string">"racecar"</span>,<span class="string">"car"</span>]</span><br><span class="line">输出: <span class="string">""</span></span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ul>
+<li>思路：以第一个字符串为范例逐一和其他字符串比较;</li>
+<li>字符串为空或字符串长度为0，直接返回””;</li>
+<li>用indexOf()来实现要找的字符在当前字符串中是否存在;</li>
+</ul>
+<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public String longestCommonPrefix(String[] strs) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs==null || strs.length==0) <span class="built_in">return</span><span class="string">""</span>;</span><br><span class="line">        String res=strs[0];</span><br><span class="line">        <span class="keyword">for</span>(int i=1;i&lt;strs.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(strs[i].indexOf(res)!=0)&#123;</span><br><span class="line">               res=res.substring(0,res.length()-1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode--罗马数字转整数</title>
     <url>/Java/Roman-digital-converter/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。<br>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。<br>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。<br>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
@@ -58,7 +77,7 @@
 </tbody></table>
 <h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: <span class="string">"LVIII"</span></span><br><span class="line">输出: 58</span><br><span class="line">解释: L = 50, V= 5, III = 3.</span><br></pre></td></tr></table></figure>
 <h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: <span class="string">"MCMXCIV"</span></span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ul>
 <li>我们将所有的组合可能列出并添加到哈希表中</li>
 <li>遍历字符串，字符串的可能只有两种，一种为1个字符，一种为2个字符，两个字符优先于一个字符</li>
 <li>先判断2个字符的组合在哈希表中是否存在，存在则将值取出加到结果ans中，并向后移2个字符。不存在则判断当前1个字符是否存在，存在则将值取出加到结果ans中，并向后移1个字符。</li>

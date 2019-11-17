@@ -88,15 +88,15 @@
 
 
 
-<meta name="description" content="题目判断一个整数是否是回文数。回文数是指正序和倒序读都是一样的整数。 示例112输入: 121输出: true 示例2123输入: -121输出: false解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。 示例3123输入: 10输出: false解释: 从右向左读, 为 01 。因此它不是一个回文数。 解析可以将数字本身进行反转，如果反转后的数与原来">
+<meta name="description" content="题目编写一个函数来查找字符串数组中的最长公共前缀.如果不存在公共前缀,返回空字符串””. 示例112输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出: &quot;fl&quot; 示例2123输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出: &quot;&quot;解释: 输入不存在公共前缀。 解析 思路：以第一个字符串为范例逐一和其他字符串比较; 字符串为空或字符串长度为0，直接返回””; 用indexO">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode--回文数">
-<meta property="og:url" content="https:&#x2F;&#x2F;dxiaow.github.io&#x2F;Java&#x2F;Palindrome&#x2F;index.html">
+<meta property="og:title" content="LeetCode--最长公共前缀">
+<meta property="og:url" content="https:&#x2F;&#x2F;dxiaow.github.io&#x2F;Java&#x2F;longestCommonPrefix&#x2F;index.html">
 <meta property="og:site_name" content="学习使我快乐">
-<meta property="og:description" content="题目判断一个整数是否是回文数。回文数是指正序和倒序读都是一样的整数。 示例112输入: 121输出: true 示例2123输入: -121输出: false解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。 示例3123输入: 10输出: false解释: 从右向左读, 为 01 。因此它不是一个回文数。 解析可以将数字本身进行反转，如果反转后的数与原来">
+<meta property="og:description" content="题目编写一个函数来查找字符串数组中的最长公共前缀.如果不存在公共前缀,返回空字符串””. 示例112输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出: &quot;fl&quot; 示例2123输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出: &quot;&quot;解释: 输入不存在公共前缀。 解析 思路：以第一个字符串为范例逐一和其他字符串比较; 字符串为空或字符串长度为0，直接返回””; 用indexO">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-17T09:59:41.327Z">
+<meta property="og:updated_time" content="2019-11-17T10:24:16.439Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://DxiaoW.github.io/Java/Palindrome/"/>
+  <link rel="canonical" href="https://DxiaoW.github.io/Java/longestCommonPrefix/"/>
 
 
 
@@ -145,7 +145,7 @@
   </script>
 
 
-  <title>LeetCode--回文数 | 学习使我快乐</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>LeetCode--最长公共前缀 | 学习使我快乐</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DxiaoW.github.io/Java/Palindrome/">
+    <link itemprop="mainEntityOfPage" href="https://DxiaoW.github.io/Java/longestCommonPrefix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DxiaoW">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode--回文数</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode--最长公共前缀</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T19:38:54+08:00">
-                2019-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-17T17:53:42+08:00">
+                2019-11-17
               </time>
             
 
@@ -317,7 +317,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-17T17:59:41+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-17T18:24:16+08:00">
                 2019-11-17
               </time>
             
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  326
+                  187
                 </span>
               
 
@@ -410,12 +410,15 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>判断一个整数是否是回文数。回文数是指正序和倒序读都是一样的整数。</p>
-<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 121</span><br><span class="line">输出: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: -121</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
-<h3 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>可以将数字本身进行反转，如果反转后的数与原来的数想的即为回文数。这里需要注意，反转后可能会大于int.MAX导致溢出，我们可以考虑只反转数字的一半这样就避开了溢出的问题。<br>如何得知反转数的位数已经达到原始数的一半？<br>每次循环我们将原始数 / 10,反转数 * 10,当反转数大于原始数时跳出循环即处理一半数字。<br>另外负数肯定不是回文数，能被10整除的数除了0以外也都不是回文数。</p>
-<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isPalindrome(int x) &#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;0 || x%10==0 &amp;&amp; x!=0)&#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        int revertedNumber=0;</span><br><span class="line">        <span class="keyword">while</span>(x&gt;revertedNumber)&#123;</span><br><span class="line">            revertedNumber=revertedNumber*10 + x%10;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  x==revertedNumber||x==revertedNumber/10;//可能为奇数或偶数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>编写一个函数来查找字符串数组中的最长公共前缀.如果不存在公共前缀,返回空字符串””.</p>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="string">"flower"</span>,<span class="string">"flow"</span>,<span class="string">"flight"</span>]</span><br><span class="line">输出: <span class="string">"fl"</span></span><br></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="string">"dog"</span>,<span class="string">"racecar"</span>,<span class="string">"car"</span>]</span><br><span class="line">输出: <span class="string">""</span></span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ul>
+<li>思路：以第一个字符串为范例逐一和其他字符串比较;</li>
+<li>字符串为空或字符串长度为0，直接返回””;</li>
+<li>用indexOf()来实现要找的字符在当前字符串中是否存在;</li>
+</ul>
+<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public String longestCommonPrefix(String[] strs) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs==null || strs.length==0) <span class="built_in">return</span><span class="string">""</span>;</span><br><span class="line">        String res=strs[0];</span><br><span class="line">        <span class="keyword">for</span>(int i=1;i&lt;strs.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(strs[i].indexOf(res)!=0)&#123;</span><br><span class="line">               res=res.substring(0,res.length()-1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -464,7 +467,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://dxiaow.github.io/Java/Palindrome/" title="LeetCode--回文数">https://dxiaow.github.io/Java/Palindrome/</a>
+    <a href="https://dxiaow.github.io/Java/longestCommonPrefix/" title="LeetCode--最长公共前缀">https://dxiaow.github.io/Java/longestCommonPrefix/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -502,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Java/Reverse-integere/" rel="next" title="LeetCode--整数反转">
-                <i class="fa fa-chevron-left"></i> LeetCode--整数反转
+              <a href="/Java/Roman-digital-converter/" rel="next" title="LeetCode--罗马数字转整数">
+                <i class="fa fa-chevron-left"></i> LeetCode--罗马数字转整数
               </a>
             
           </div>
@@ -511,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Java/Roman-digital-converter/" rel="prev" title="LeetCode--罗马数字转整数">
-                LeetCode--罗马数字转整数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -714,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1"><span class="nav-number">1.1.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例2"><span class="nav-number">1.2.</span> <span class="nav-text">示例2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例3"><span class="nav-number">1.3.</span> <span class="nav-text">示例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析"><span class="nav-number"></span> <span class="nav-text">解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码如下"><span class="nav-number">1.</span> <span class="nav-text">代码如下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1"><span class="nav-number">1.1.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例2"><span class="nav-number">1.2.</span> <span class="nav-text">示例2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析"><span class="nav-number"></span> <span class="nav-text">解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码如下"><span class="nav-number">1.</span> <span class="nav-text">代码如下</span></a></li></ol></div>
             
 
           </div>
