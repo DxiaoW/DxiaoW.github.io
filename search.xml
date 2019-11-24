@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode--有效的括号</title>
+    <url>/Java/Valid-Parenthese/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">()[]&#123;&#125; ---Valid</span><br><span class="line">([)]   ---inValid</span><br><span class="line">(      ---inValid</span><br></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>我们可以遍历每一个字符数组，遍历到哪种左括号就push相应的右括号。若遍历到右括号，则判断Stack是否为空和pop的内容与遍历到的数组是否相同，Stack为空或pop内容不相等则返回false。跳出循环后还需要判断Stack是否为空，若为空则表示所有括号都有相应括号与之对应，反之视为无效。</p>
+<h6 id="栈-Stack-相关知识："><a href="#栈-Stack-相关知识：" class="headerlink" title="栈(Stack)相关知识："></a>栈(Stack)相关知识：</h6><ul>
+<li>添加元素：push();</li>
+<li>移除栈顶：pop();</li>
+<li>判断栈是否为空：isEmpty();</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="bash">class Solution {
+    public boolean isValid(String s) {
+        <span class="keyword">if</span>(s==null || s.length()==0) <span class="built_in">return</span> <span class="literal">true</span>;
+        Stack &lt;Character&gt; stack = new Stack&lt;&gt;();
+        <span class="keyword">for</span>(Character ch : s.toCharArray()){  //遍历每一个字符数组
+            <span class="keyword">if</span>(ch == <span class="string">'('</span>){
+                stack.push(<span class="string">')'</span>);
+            }<span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">'['</span>){
+                stack.push(<span class="string">']'</span>);
+            }<span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">'{'</span>){
+                stack.push(<span class="string">'}'</span>);
+            }<span class="keyword">else</span> {  //遍历到右括号
+                <span class="keyword">if</span>(stack.isEmpty() || stack.pop() != ch){
+                     <span class="built_in">return</span> <span class="literal">false</span>;
+                }
+            }
+        }
+        <span class="built_in">return</span> stack.isEmpty();  //判断Stack是否为空
+    }
+}</code></pre>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode--最长公共前缀</title>
     <url>/Java/longestCommonPrefix/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>编写一个函数来查找字符串数组中的最长公共前缀.如果不存在公共前缀,返回空字符串””.</p>
