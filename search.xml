@@ -7,7 +7,7 @@
 <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
 </blockquote>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">()[]&#123;&#125; ---Valid</span><br><span class="line">([)]   ---inValid</span><br><span class="line">(      ---inValid</span><br></pre></td></tr></table></figure>
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>我们可以遍历每一个字符数组，遍历到哪种左括号就push相应的右括号。若遍历到右括号，则判断Stack是否为空和pop的内容与遍历到的数组是否相同，Stack为空或pop内容不相等则返回false。跳出循环后还需要判断Stack是否为空，若为空则表示所有括号都有相应括号与之对应，反之视为无效。</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>我们可以遍历每一个字符数组，遍历到哪种左括号就push相应的右括号。若遍历到右括号，则判断Stack是否为空和pop的内容与遍历到的数组是否相同，Stack为空或pop内容不相等则返回false。跳出循环后还需要判断Stack是否为空，若为空则表示所有括号都有相应括号与之对应，反之视为无效。</p>
 <h6 id="栈-Stack-相关知识："><a href="#栈-Stack-相关知识：" class="headerlink" title="栈(Stack)相关知识："></a>栈(Stack)相关知识：</h6><ul>
 <li>添加元素：push();</li>
 <li>移除栈顶：pop();</li>
@@ -118,7 +118,7 @@
 </tbody></table>
 <h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: <span class="string">"LVIII"</span></span><br><span class="line">输出: 58</span><br><span class="line">解释: L = 50, V= 5, III = 3.</span><br></pre></td></tr></table></figure>
 <h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: <span class="string">"MCMXCIV"</span></span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure>
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ul>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul>
 <li>我们将所有的组合可能列出并添加到哈希表中</li>
 <li>遍历字符串，字符串的可能只有两种，一种为1个字符，一种为2个字符，两个字符优先于一个字符</li>
 <li>先判断2个字符的组合在哈希表中是否存在，存在则将值取出加到结果ans中，并向后移2个字符。不存在则判断当前1个字符是否存在，存在则将值取出加到结果ans中，并向后移1个字符。</li>
@@ -140,7 +140,7 @@
 <h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 121</span><br><span class="line">输出: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: -121</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
 <h3 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>可以将数字本身进行反转，如果反转后的数与原来的数想的即为回文数。这里需要注意，反转后可能会大于int.MAX导致溢出，我们可以考虑只反转数字的一半这样就避开了溢出的问题。<br>如何得知反转数的位数已经达到原始数的一半？<br>每次循环我们将原始数 / 10,反转数 * 10,当反转数大于原始数时跳出循环即处理一半数字。<br>另外负数肯定不是回文数，能被10整除的数除了0以外也都不是回文数。</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>可以将数字本身进行反转，如果反转后的数与原来的数想的即为回文数。这里需要注意，反转后可能会大于int.MAX导致溢出，我们可以考虑只反转数字的一半这样就避开了溢出的问题。<br>如何得知反转数的位数已经达到原始数的一半？<br>每次循环我们将原始数 / 10,反转数 * 10,当反转数大于原始数时跳出循环即处理一半数字。<br>另外负数肯定不是回文数，能被10整除的数除了0以外也都不是回文数。</p>
 <h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isPalindrome(int x) &#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;0 || x%10==0 &amp;&amp; x!=0)&#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        int revertedNumber=0;</span><br><span class="line">        <span class="keyword">while</span>(x&gt;revertedNumber)&#123;</span><br><span class="line">            revertedNumber=revertedNumber*10 + x%10;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>  x==revertedNumber||x==revertedNumber/10;//可能为奇数或偶数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Java</category>
@@ -156,7 +156,7 @@
 <h3 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure>
 <h3 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure>
 <h3 id="示例3："><a href="#示例3：" class="headerlink" title="示例3："></a>示例3：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure>
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>n位的有符号整数意思是说范围在[−2^(n−1),2^(n−1)−1]，那么32位有符号整数范围是[−2^31,2^31−1]也就是-2147483648到2147483647超出这个范围视为溢出则返回0.</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>n位的有符号整数意思是说范围在[−2^(n−1),2^(n−1)−1]，那么32位有符号整数范围是[−2^31,2^31−1]也就是-2147483648到2147483647超出这个范围视为溢出则返回0.</p>
 <ul>
 <li>溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，pop为x每次除10的余数(个位数)</li>
 </ul>
@@ -164,7 +164,7 @@
 <li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br> 当出现 ans &gt; MAX_VALUE / 10 且还有pop需要添加时，则一定溢出<br> 当出现 ans == MAX_VALUE / 10 且 pop &gt; 7时，则一定溢出，7是2^31 - 1的个位数。</li>
 <li>从ans * 10 + pop &lt; MIN_VALUE这个溢出条件来看<br> 当出现 ans &lt; MIN_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br> 当出现 ans == MIN_VALUE / 10 且 pop &lt; -8 时，则一定溢出，8是-2^31的个位数</li>
 </ol>
-<h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int reverse(int x) &#123;</span><br><span class="line">        int ans=0;</span><br><span class="line">        <span class="keyword">while</span>(x!=0)&#123;</span><br><span class="line">            int pop=x%10;</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;Integer.MAX_VALUE/10||(ans==Integer.MAX_VALUE/10&amp;&amp;pop&gt;7))<span class="built_in">return</span> 0;</span><br><span class="line">            <span class="keyword">if</span>(ans&lt;Integer.MIN_VALUE/10||(ans==Integer.MIN_VALUE/10&amp;&amp;pop&lt;-8))<span class="built_in">return</span> 0;</span><br><span class="line">            ans=ans*10+pop;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int reverse(int x) &#123;</span><br><span class="line">        int ans=0;</span><br><span class="line">        <span class="keyword">while</span>(x!=0)&#123;</span><br><span class="line">            int pop=x%10;</span><br><span class="line">            <span class="keyword">if</span>(ans&gt;Integer.MAX_VALUE/10||(ans==Integer.MAX_VALUE/10&amp;&amp;pop&gt;7))<span class="built_in">return</span> 0;</span><br><span class="line">            <span class="keyword">if</span>(ans&lt;Integer.MIN_VALUE/10||(ans==Integer.MIN_VALUE/10&amp;&amp;pop&lt;-8))<span class="built_in">return</span> 0;</span><br><span class="line">            ans=ans*10+pop;</span><br><span class="line">            x/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Java</category>
