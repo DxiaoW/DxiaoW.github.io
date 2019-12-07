@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode--合并K个排序序链表</title>
+    <url>/Java/mergeKLists/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>合并 k 个排序链表，返回合并后的排序链表</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">[1-&gt;4-&gt;5,</span><br><span class="line">1-&gt;3-&gt;4,</span><br><span class="line">2-&gt;6</span><br><span class="line">]</span><br><span class="line">输出:1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>暴力法</p>
+<ul>
+<li>遍历所有链表，将所有节点的值放到一个数组中。</li>
+<li>将这个数组排序，然后遍历所有元素得到正确顺序的值。</li>
+<li>用遍历得到的值，创建一个新的有序链表。</li>
+</ul>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode mergeKLists(ListNode[] lists) &#123;</span><br><span class="line">        <span class="keyword">if</span>(lists == null || lists.length == 0)<span class="built_in">return</span> null;</span><br><span class="line">        //将所有链表节点加入到数组nodes中	</span><br><span class="line">        List&lt;ListNode&gt; nodes = new ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(ListNode list : lists)&#123;</span><br><span class="line">            <span class="keyword">while</span>(list != null)&#123;</span><br><span class="line">                nodes.add(list);</span><br><span class="line">                list = list.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //根据val的值对nodes进行从小到大排序</span><br><span class="line">        nodes.sort((ListNode node1,ListNode node2)-&gt;&#123;</span><br><span class="line">            <span class="built_in">return</span> node1.val-node2.val; </span><br><span class="line">        &#125;);</span><br><span class="line">        //将排好序的链表串起来</span><br><span class="line">        ListNode head =new ListNode(0);</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">for</span>(ListNode node : nodes)&#123;</span><br><span class="line">            cur=cur.next=node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode--合并两个有序链表</title>
     <url>/Java/mergeTwoLists/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
